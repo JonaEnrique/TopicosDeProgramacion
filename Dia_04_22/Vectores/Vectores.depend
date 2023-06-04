@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1682174174 source:c:\users\laboratorios\desktop\topicos\vectores\funciones.c
+	"funciones.h"
+
+1682174200 c:\users\laboratorios\desktop\topicos\vectores\funciones.h
+	<stdio.h>
+	<stdbool.h>
+
+1682174301 source:c:\users\laboratorios\desktop\topicos\vectores\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+

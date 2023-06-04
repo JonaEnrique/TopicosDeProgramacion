@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1680653133 source:c:\users\jonathan_enrique\desktop\testcodeblocks\fecha\fecha.c
+	"Fecha.h"
+
+1680652742 source:c:\users\jonathan_enrique\desktop\testcodeblocks\fecha\main.c
+	"main.h"
+
+1680652270 c:\users\jonathan_enrique\desktop\testcodeblocks\fecha\main.h
+	<stdio.h>
+	<stdlib.h>
+	"Fecha.h"
+
+1680652190 c:\users\jonathan_enrique\desktop\testcodeblocks\fecha\fecha.h
+	<stdio.h>
+	<stdbool.h>
+
+1680652742 source:e:\fecha\main.c
+	"main.h"
+
+1680652270 e:\fecha\main.h
+	<stdio.h>
+	<stdlib.h>
+	"Fecha.h"
+
+1680652190 e:\fecha\fecha.h
+	<stdio.h>
+	<stdbool.h>
+
+1682630093 source:e:\fecha\fecha.c
+	"Fecha.h"
+

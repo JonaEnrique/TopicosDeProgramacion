@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1682774158 source:c:\users\ndc\documents\codigos de codeblocks\clase_29_04\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+

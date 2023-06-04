@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1683306956 source:c:\users\ndc\documents\codigos de codeblocks\fecha\main.c
+	"../FechaLib/fecha.h"
+
+1683304765 source:c:\users\ndc\documents\codigos de codeblocks\fecha\fecha.c
+	<stdbool.h>
+	"fecha.h"
+
+1683303457 c:\users\ndc\documents\codigos de codeblocks\fecha\fecha.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<stdbool.h>
+
+1683307008 c:\users\ndc\documents\codigos de codeblocks\fechalib\fecha.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<stdbool.h>
+

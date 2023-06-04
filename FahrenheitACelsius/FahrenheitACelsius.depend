@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1683242696 source:c:\users\jonathan\desktop\ejerciciostopicos\fahrenheitacelsius\main.c
+	<stdio.h>
+	<stdlib.h>
+

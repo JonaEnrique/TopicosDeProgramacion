@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1685652451 source:c:\users\jonathan_enrique\desktop\topicosdeprogra\topicosdeprogramacion\unidad3_pasajedepamametros\main.c
+	<stdio.h>
+	<stdlib.h>
+

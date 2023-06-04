@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1685048910 source:c:\users\jonathan_enrique\desktop\topicosdeprogra\topicosdeprogramacion\ejercicio_1_8_ocurrenciadepalabraencad\main.c
+	<stdio.h>
+	<stdlib.h>
+

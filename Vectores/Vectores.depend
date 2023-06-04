@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1682798163 source:c:\users\jonathan\desktop\ejerciciostopicos\vectores\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1684101081 source:c:\users\jonathan_enrique\desktop\topicosdeprogra\topicosdeprogramacion\vectores\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
