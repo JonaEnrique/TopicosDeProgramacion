@@ -46,3 +46,5 @@ int compararPersona(const void* arg1, const void* arg2)
 {
     return ((Persona*)arg1)->dni - ((Persona*)arg2)->dni;
 }
+
+// Prueba
