@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1686336490 source:c:\e\[8] github\topico proyectos\topicosdeprogramacion\unidad1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<ctype.h>
+	<string.h>
+
