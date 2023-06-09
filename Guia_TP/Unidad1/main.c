@@ -22,7 +22,7 @@ int main()
     char cadenaPrueba5[] = "tres";
     //char cadenaPrueba6[] = "Buscaremos la palabra Lepricon, en respecto a su significado el Lepricon es...";
     //char palabraPrueba6[] = "Leepricon";
-    char cadenaPrueba6[] = "Hoola";
+    char cadenaPrueba6[] = "HHHola";
     char palabraPrueba6[] = "Hola";
 
     int ce = 10, tamVec = 10, ceCP2 = 16, ceCP3 = 4, resultadoSumaCadenas = 0,testSumaCadenas = 0, tamCadena = 0, tamCadena2 = 0, halladas = 0;
@@ -196,6 +196,7 @@ int detectarPalabra(const char* cadena, const char* palabra, int tamPalabra)
         if(*cursorCad != *cursorPal && palabraHallada == 1)
         {
             coincidencias = 0;
+            palabraHallada = 0;
             cursorPal = (char*) palabra;
         }
 
