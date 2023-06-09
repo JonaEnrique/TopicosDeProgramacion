@@ -10,8 +10,8 @@ void eliminarTodasAparacionesElemento (int cadena[], int elemento, int tamCadena
 void eliminarTodasAparacionesElementoConPuntero(int* vec, int* ce, int tamVec, int elemento); // Ejercicio 1.5 con punteros Nico
 bool detectarPalindromo(const char* vec, const int* ce); // Ejercicio 1.6 funcion adicional Nico
 /// EJERCICIO 1.7 ES ATOI
-int detectarPalabra(const char* cadena, const char* palabra, int tamPalabra);
-size_t mi_strlen (char* cadena);
+int detectarPalabra(const char* cadena, const char* palabra, int tamPalabra); // Ejercicio 1.8 con punteros Nico
+size_t mi_strlen (char* cadena); // Ejercicio 1.8 funcion adicional Nico
 
 int main()
 {
@@ -20,8 +20,10 @@ int main()
     char cadenaPrueba3[] = "LaaL";
     char cadenaPrueba4[] = "un millon ciento veinte mil cuatrocientos veinti y dos";
     char cadenaPrueba5[] = "tres";
-    char cadenaPrueba6[] = "Buscaremos la palabra Lepricon, en respecto a su significado el Lepricon es...";
-    char palabraPrueba6[] = "Lepricon";
+    //char cadenaPrueba6[] = "Buscaremos la palabra Lepricon, en respecto a su significado el Lepricon es...";
+    //char palabraPrueba6[] = "Leepricon";
+    char cadenaPrueba6[] = "Hoola";
+    char palabraPrueba6[] = "Hola";
 
     int ce = 10, tamVec = 10, ceCP2 = 16, ceCP3 = 4, resultadoSumaCadenas = 0,testSumaCadenas = 0, tamCadena = 0, tamCadena2 = 0, halladas = 0;
     bool valor;
@@ -177,7 +179,7 @@ bool detectarPalindromo(const char* vec, const int* ce)
 
 int detectarPalabra(const char* cadena, const char* palabra, int tamPalabra)
 {
-    int halladas = 0, coincidencias = 0;
+    int halladas = 0, coincidencias = 0, palabraHallada = 0;
     char* cursorCad;
     char* cursorPal = (char*) palabra;
 
@@ -188,6 +190,13 @@ int detectarPalabra(const char* cadena, const char* palabra, int tamPalabra)
         {
             coincidencias++;
             cursorPal++;
+            palabraHallada = 1;
+        }
+
+        if(*cursorCad != *cursorPal && palabraHallada == 1)
+        {
+            coincidencias = 0;
+            cursorPal = (char*) palabra;
         }
 
         if(coincidencias == tamPalabra) // se podria tomar *cursorPal == '\0' para tomar como hallado?
