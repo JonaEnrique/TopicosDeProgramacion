@@ -10,8 +10,8 @@ void eliminarTodasAparacionesElemento (int cadena[], int elemento, int tamCadena
 void eliminarTodasAparacionesElementoConPuntero(int* vec, int* ce, int tamVec, int elemento); // Ejercicio 1.5 con punteros Nico
 bool detectarPalindromo(const char* vec, const int* ce); // Ejercicio 1.6 funcion adicional Nico
 /// EJERCICIO 1.7 ES ATOI
-int detectarPalabra(const char* cadena, const char* palabra, int tamPalabra); // Ejercicio 1.8 con punteros Nico
-size_t mi_strlen (char* cadena); // Ejercicio 1.8 funcion adicional Nico
+int detectarPalabra(const char* cadena, const char* palabra); // Ejercicio 1.8 con punteros Nico
+size_t mi_strlen (char* cadena); // strlen creado por si sirve. Nico
 
 int main()
 {
@@ -22,7 +22,7 @@ int main()
     char cadenaPrueba5[] = "tres";
     //char cadenaPrueba6[] = "Buscaremos la palabra Lepricon, en respecto a su significado el Lepricon es...";
     //char palabraPrueba6[] = "Leepricon";
-    char cadenaPrueba6[] = "HHHola";
+    char cadenaPrueba6[] = "DAAHHHola";
     char palabraPrueba6[] = "Hola";
 
     int ce = 10, tamVec = 10, ceCP2 = 16, ceCP3 = 4, resultadoSumaCadenas = 0,testSumaCadenas = 0, tamCadena = 0, tamCadena2 = 0, halladas = 0;
@@ -34,7 +34,7 @@ int main()
     eliminarTodasAparacionesElementoConPuntero(cadenaPrueba, &ce, tamVec, 5);
     valor = detectarPalindromo(cadenaPrueba2, &ceCP2);
     valor = detectarPalindromo(cadenaPrueba3, &ceCP3);
-    halladas = detectarPalabra(cadenaPrueba6, palabraPrueba6, mi_strlen(palabraPrueba6));
+    halladas = detectarPalabra(cadenaPrueba6, palabraPrueba6);
 
     puts("Fin de Prueba");
 
@@ -177,35 +177,35 @@ bool detectarPalindromo(const char* vec, const int* ce)
     return noPalindromo ? false : true;
 }
 
-int detectarPalabra(const char* cadena, const char* palabra, int tamPalabra)
+int detectarPalabra(const char* cadena, const char* palabra)
 {
-    int halladas = 0, coincidencias = 0, palabraHallada = 0;
+    int halladas = 0, finalizada = 0;
     char* cursorCad;
+    // char* tempCursorCad = (char*) cadena; // creado para trampas como HHHola (donde se repite primer letra)
     char* cursorPal = (char*) palabra;
 
-    for(cursorCad = (char*) cadena; *cursorCad != '\0'; cursorCad++)
+    for(cursorCad = (char*) cadena; finalizada != 1; cursorCad++)
     {
 
         if(*cursorCad == *cursorPal)
         {
-            coincidencias++;
+            if(!*cursorCad)
+                halladas++;
+
             cursorPal++;
-            palabraHallada = 1;
         }
-
-        if(*cursorCad != *cursorPal && palabraHallada == 1)
+        else
         {
-            coincidencias = 0;
-            palabraHallada = 0;
             cursorPal = (char*) palabra;
+            cadena++; // llamado a cadena que no genera warning porque solo se toca direccion
+            cursorCad = (char*) cadena;
         }
+        if(*cursorCad == '\0')
+            finalizada = 1; // forzado para que llegue hasta el final, si evaluamos en el for se corta antes de llegar al \0 de la palabra
+            // Jona tiene un metodo con While que es mas compacto que el for presentado.
+            // Se usa While(cursorCad) y se elimina el ultimo if de nuestro for
+            // fuera del While tambien verifico if(!*cursorCad) halladas++ para detectar ultimo caso.
 
-        if(coincidencias == tamPalabra) // se podria tomar *cursorPal == '\0' para tomar como hallado?
-        {
-            halladas++;
-            coincidencias = 0;
-            cursorPal = (char*) palabra;
-        }
     }
 
     return halladas;
