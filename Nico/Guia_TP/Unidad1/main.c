@@ -13,6 +13,11 @@ bool detectarPalindromo(const char* vec, const int* ce); // Ejercicio 1.6 funcio
 int detectarPalabra(const char* cadena, const char* palabra); // Ejercicio 1.8 con punteros Nico
 size_t mi_strlen (char* cadena); // strlen creado por si sirve. Nico
 
+void normalizarCadena(char* cadena);
+void miToLower(char* caracter);
+void miToUpper(char* caracter);
+int esPalabra(char* caracter);
+
 int main()
 {
     int cadenaPrueba[10] = {1, 5, 6, 7, 8, 9, 10, 5, 7, 5};
@@ -22,8 +27,10 @@ int main()
     char cadenaPrueba5[] = "tres";
     //char cadenaPrueba6[] = "Buscaremos la palabra Lepricon, en respecto a su significado el Lepricon es...";
     //char palabraPrueba6[] = "Leepricon";
-    char cadenaPrueba6[] = "DAAHHHola";
+    char cadenaPrueba6[] = "DAAHHHola TESTEO Hola DEl";
     char palabraPrueba6[] = "Hola";
+    char cadenaPrueba7[] = " ESTO es  UNA prueba         P2456aRa SAbEr  si  eSTO      si funciona     .   ";
+    char CadenaPrueba8[] = "funciona     .   ";
 
     int ce = 10, tamVec = 10, ceCP2 = 16, ceCP3 = 4, resultadoSumaCadenas = 0,testSumaCadenas = 0, tamCadena = 0, tamCadena2 = 0, halladas = 0;
     bool valor;
@@ -35,6 +42,10 @@ int main()
     valor = detectarPalindromo(cadenaPrueba2, &ceCP2);
     valor = detectarPalindromo(cadenaPrueba3, &ceCP3);
     halladas = detectarPalabra(cadenaPrueba6, palabraPrueba6);
+    size_t tamanio = strlen(cadenaPrueba7);
+    normalizarCadena(cadenaPrueba7);
+    tamanio = strlen(cadenaPrueba7);
+    normalizarCadena(CadenaPrueba8);
 
     puts("Fin de Prueba");
 
@@ -189,10 +200,10 @@ int detectarPalabra(const char* cadena, const char* palabra)
 
         if(*cursorCad == *cursorPal)
         {
-            if(!*cursorCad)
-                halladas++;
 
             cursorPal++;
+            if(!*cursorPal)
+                halladas++;
         }
         else
         {
@@ -202,6 +213,7 @@ int detectarPalabra(const char* cadena, const char* palabra)
         }
         if(*cursorCad == '\0')
             finalizada = 1; // forzado para que llegue hasta el final, si evaluamos en el for se corta antes de llegar al \0 de la palabra
+
             // Jona tiene un metodo con While que es mas compacto que el for presentado.
             // Se usa While(cursorCad) y se elimina el ultimo if de nuestro for
             // fuera del While tambien verifico if(!*cursorCad) halladas++ para detectar ultimo caso.
@@ -213,8 +225,99 @@ int detectarPalabra(const char* cadena, const char* palabra)
 
 size_t mi_strlen (char* cadena)
 {
-    char* cursorCad = cadena;
+    char *cursorCad;
     while (*cursorCad != '\0')
         cursorCad++;
     return cursorCad - cadena; // para referencia ver 5.4 de Kernighan
+}
+
+void normalizarCadena(char* cadena)
+{
+    int finInicio = 0, salto = 0, inicio = 0, palabraDetectada = 0;
+    char* cursorCad, * tempCursorCad, * tempCursorFinPalabra;
+
+    for(cursorCad = cadena; *cursorCad; cursorCad++)
+    {
+        if((*cursorCad == ' ' || *cursorCad == '\t') && finInicio == 0)
+            {
+            for(cursorCad = cadena; (*cursorCad = *(cursorCad + 1)); cursorCad++)
+                ;
+            cursorCad = cadena;
+            }
+
+        if(*cursorCad == ' ' || *cursorCad == '\t')
+        {
+            salto = 1;
+            if(*cursorCad == *(cursorCad + 1))
+            {
+                tempCursorCad = cursorCad;
+                for(cursorCad = cursorCad; (*cursorCad = *(cursorCad + 1)); cursorCad++) // Elimino repeticion de espacio
+                    ;
+                cursorCad = tempCursorCad;
+            }
+
+        }
+
+        if(esPalabra(cursorCad))
+        {
+            miToLower(cursorCad);
+            finInicio = 1;
+            if(inicio == 0)
+            {
+                miToUpper(cursorCad);
+                inicio = 1;
+            }
+            if(salto == 1)
+            {
+                miToUpper(cursorCad);
+                salto = 0;
+            }
+            tempCursorFinPalabra = cursorCad+1;
+            palabraDetectada = 1;
+        }
+
+        if(*cursorCad != ' ' && *cursorCad != '\t')
+        {
+            palabraDetectada = 1;
+            tempCursorFinPalabra = cursorCad+1;
+        }
+
+        if(palabraDetectada == 1 && salto == 1 && !(*(cursorCad + 1)))
+        {
+            while(*cursorCad)
+            {
+                for(cursorCad = tempCursorFinPalabra;(*cursorCad = *(cursorCad+1)); cursorCad++)
+                    ;
+                cursorCad = tempCursorFinPalabra;
+            }
+        }
+
+    }
+}
+
+void miToLower(char* caracter)
+{
+    if((*caracter) >= 'A' && (*caracter) <= 'Z')
+    {
+        *caracter += ('a' - 'A');
+    }
+
+}
+
+void miToUpper(char* caracter)
+{
+    if((*caracter) >= 'a' && (*caracter) <= 'z')
+    {
+        *caracter -= ('a' - 'A');
+    }
+
+}
+
+int esPalabra(char* caracter)
+{
+    if(((*caracter) >= 'A' && (*caracter) <= 'Z') || ((*caracter) >= 'a' && (*caracter) <= 'z'))
+    {
+         return 1;
+    }
+    return 0;
 }
