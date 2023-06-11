@@ -6,6 +6,7 @@
 
 #define esPar(n) ((n)%2 ? 0:1)
 #define esNumero(n) ((n) >= '0' && (n) <= '9' ? 1 : 0)
+#define esLetra(n) (((n) >= 'a' && (n) <= 'z') || ((n) >= 'A' && (n) <= 'Z'))
 
 #define TAM_VEC 10
 
@@ -17,6 +18,7 @@ bool eliminarTodasLasAparicionesDeVector(const int *vec, int* ce, int tamVec, in
 bool esPalindromo(const char* cad); // Ejercicio 1.6
 int mi_atoi(const char* cad); // Ejercicio 1.7
 int ocurrenciasEnCad(const char* text, const char* cad); // Ejercicio 1.8
+void normalizarCad(const char* cadDest, const char* cadOrig);
 
 void borrarEspaciosDeCad(char* cad);
 void tolowerCad(char* cad);
@@ -34,9 +36,15 @@ int main()
 //    mostrarVector(vec, ce);
 
 
-    printf("%d\n", mi_atoi("12345"));
-    printf("%d", atoi("1245"));
-    
+//    printf("%d\n", mi_atoi("12345"));
+//    printf("%d", atoi("1245"));
+
+    char cadenaOrigen[] = "          Hola #$%%#$&%/ mundo  6759979650070507065706   como estas";
+    char cadDestino[30];
+
+    normalizarCad(cadDestino, cadenaOrigen);
+
+    printf("Cadena oringen: |%s|\nCadena destino: |%s|\n", cadenaOrigen, cadDestino);
 
     return 0;
 }
@@ -239,7 +247,42 @@ int mi_atoi(const char* cad)
     return n;
 }
 
+void normalizarCad(const char* cadDest, const char* cadOrig)
+{
+    char *cCadOrig = (char*)cadOrig,
+         *cCadDest = (char*)cadDest,
+         *iniPal,
+         *finPal;
 
+    while(*cCadOrig)
+    {
+        if(esLetra(*cCadOrig))
+        {
+            iniPal = cCadOrig;
+
+            while(*cCadOrig && esLetra(*cCadOrig))
+                cCadOrig++;
+
+            finPal = (char*)cCadOrig - 1;
+
+            while(iniPal <= finPal)
+            {
+                *cCadDest = *iniPal;
+
+                iniPal++;
+                cCadDest++;
+            }
+
+            *cCadDest = ' ';
+            cCadDest++;
+        }
+        else
+            cCadOrig++;
+    }
+
+    cCadDest--;
+    *cCadDest = '\0';
+}
 
 // Pimera version del ejercicio 1.4 que no funciona del todo
 
