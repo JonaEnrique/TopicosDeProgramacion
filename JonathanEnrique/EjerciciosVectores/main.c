@@ -18,7 +18,8 @@ bool eliminarTodasLasAparicionesDeVector(const int *vec, int* ce, int tamVec, in
 bool esPalindromo(const char* cad); // Ejercicio 1.6
 int mi_atoi(const char* cad); // Ejercicio 1.7
 int ocurrenciasEnCad(const char* text, const char* cad); // Ejercicio 1.8
-void normalizarCad(const char* cadDest, const char* cadOrig);
+void normalizarCad(const char* cadDest, const char* cadOrig); // Ejercicio 1.9
+void normalizarCadMisma(char* cad); // Ejercicio 1.9
 
 void borrarEspaciosDeCad(char* cad);
 void tolowerCad(char* cad);
@@ -39,12 +40,17 @@ int main()
 //    printf("%d\n", mi_atoi("12345"));
 //    printf("%d", atoi("1245"));
 
-    char cadenaOrigen[] = "          Hola #$%%#$&%/ mundo  6759979650070507065706   como estas";
-    char cadDestino[30];
+//    char cadenaOrigen[] = "          Hola #$%%#$&%/ mundo  6759979650070507065706   como estas";
+//    char cadDestino[30];
+//
+//    normalizarCad(cadDestino, cadenaOrigen);
+//
+//    printf("Cadena oringen: |%s|\nCadena destino: |%s|\n", cadenaOrigen, cadDestino);
 
-    normalizarCad(cadDestino, cadenaOrigen);
+    char cadena[] = "          Hola #$%%#$&%/ muNdo ????????? 6759979650070507065706   como estas   \\\\////   ";
 
-    printf("Cadena oringen: |%s|\nCadena destino: |%s|\n", cadenaOrigen, cadDestino);
+    normalizarCadMisma(cadena);
+    printf("Cadena: |%s|\n", cadena);
 
     return 0;
 }
@@ -282,6 +288,55 @@ void normalizarCad(const char* cadDest, const char* cadOrig)
 
     cCadDest--;
     *cCadDest = '\0';
+}
+
+void normalizarCadMisma(char* cad)
+{
+    char *cCad = cad,
+         *cWrite = cad,
+         *iniPal,
+         *finPal,
+         *formatearPal;
+
+    while(*cCad)
+    {
+        if(esLetra(*cCad))
+        {
+            iniPal = cCad;
+
+            while(*cCad && esLetra(*cCad))
+                cCad++;
+
+            finPal = cCad - 1;
+
+            formatearPal = iniPal;
+            *formatearPal = toupper(*formatearPal);
+
+            formatearPal++;
+
+            while(formatearPal <= finPal)
+            {
+                *formatearPal = tolower(*formatearPal);
+                formatearPal++;
+            }
+
+            while(iniPal <= finPal)
+            {
+                *cWrite = *iniPal;
+
+                iniPal++;
+                cWrite++;
+            }
+
+            *cWrite = ' ';
+            cWrite++;
+        }
+        else
+            cCad++;
+    }
+
+    cWrite--;
+    *cWrite = '\0';
 }
 
 // Pimera version del ejercicio 1.4 que no funciona del todo
