@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1686687770 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\jonathanenrique\unidad5_persistenciadememoria\empleadoestudiantes.c
+	"EmpleadoEstudiantes.h"
+
+1686687815 d:\datos2023\unlam\topicos\topicosdeprogramacion\jonathanenrique\unidad5_persistenciadememoria\empleadoestudiantes.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1686688061 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\jonathanenrique\unidad5_persistenciadememoria\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"EmpleadoEstudiantes.h"
+

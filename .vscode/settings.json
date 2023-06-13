@@ -1,6 +1,11 @@
 {
     "files.associations": {
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "cmath": "c",
+        "type_traits": "c",
+        "limits": "c",
+        "*.tcc": "c",
+        "typeinfo": "c"
     },
     "C_Cpp.default.compilerPath": "C:\\Program Files\\CodeBlocks\\MinGW\\bin\\gcc"
 }

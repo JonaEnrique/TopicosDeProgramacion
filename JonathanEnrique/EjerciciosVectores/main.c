@@ -16,12 +16,15 @@ bool eliminarDeVectorPos(const int* vec, int* ce, int tamVec, int pos); // Ejerc
 bool eliminarPrimeraAparicionDeVector(const int* vec, int* ce, int tamVec, int elem); // Ejercicio 1.4
 bool eliminarTodasLasAparicionesDeVector(const int *vec, int* ce, int tamVec, int elem); // Ejercicio 1.5
 bool esPalindromo(const char* cad); // Ejercicio 1.6
+bool esPalindromoV2(const char* cad); // Ejercicio 1.6
 int mi_atoi(const char* cad); // Ejercicio 1.7
 int ocurrenciasEnCad(const char* text, const char* cad); // Ejercicio 1.8
 void normalizarCad(const char* cadDest, const char* cadOrig); // Ejercicio 1.9
 void normalizarCadMisma(char* cad); // Ejercicio 1.9
+char* normalizarCadenaPan(const char* cadOrig, char* cadDest);
 
 void borrarEspaciosDeCad(char* cad);
+void borrarEspaciosDeCadV2(char* cadDest, const char* cadOrig);
 void tolowerCad(char* cad);
 void mostrarVector(int* vec, int ce);
 
@@ -48,9 +51,15 @@ int main()
 //    printf("Cadena oringen: |%s|\nCadena destino: |%s|\n", cadenaOrigen, cadDestino);
 
     char cadena[] = "          Hola #$%%#$&%/ muNdo ????????? 6759979650070507065706   como estas   \\\\////   ";
+    char cadDest[30];
 
-    normalizarCadMisma(cadena);
-    printf("Cadena: |%s|\n", cadena);
+    normalizarCadenaPan(cadena, cadDest);
+    printf("Cadena: |%s|\n", cadDest);
+
+//    char cad[] = "reco nocer";
+//
+//    printf("%s es palindromo.\n", (esPalindromoV2(cad)==true) ? "Si": "No");
+//    printf("%d", esPalindromoV2(cad));
 
     return 0;
 }
@@ -175,6 +184,31 @@ bool esPalindromo(const char* cad)
     return cantComp ? false : true;
 }
 
+bool esPalindromoV2(const char* cad)
+{
+    char auxCad[strlen(cad)],
+         *ini,
+         *fin;
+
+    int n, i = 1;
+
+    borrarEspaciosDeCadV2(auxCad, cad);
+
+    n = strlen(auxCad)/2;
+    ini = auxCad,
+    fin = auxCad + strlen(auxCad) - 1;
+
+    while(i <= n && *ini == *fin)
+    {
+        ini++;
+        fin--;
+
+        i++;
+    }
+
+    return (i <= n) ? true : false;
+}
+
 int ocurrenciasEnCad(const char* text, const char* cad)
 {
     int ocurr = 0;
@@ -228,6 +262,24 @@ void borrarEspaciosDeCad(char* cad)
         }
         else
             cad++;
+    }
+}
+
+void borrarEspaciosDeCadV2(char* cadDest, const char* cadOrig)
+{
+    char* cDest = cadDest;
+    char* cOrig = (char*)cadOrig;
+
+    while(*cOrig)
+    {
+        if(*cOrig != ' ')
+        {
+            *cDest = *cOrig;
+
+            cDest++;
+        }
+
+        cOrig++;
     }
 }
 
@@ -337,6 +389,43 @@ void normalizarCadMisma(char* cad)
 
     cWrite--;
     *cWrite = '\0';
+}
+
+char* normalizarCadenaPan(const char* cadOrig, char* cadDest)
+{
+    const char* orig = cadOrig;
+    char* dest = cadDest;
+
+    while(*orig)
+    {
+        while(*orig && !esLetra(*orig))
+            orig++;
+
+        if(!*orig)
+        {
+            *dest = '\0';
+            return cadDest;
+        }
+
+        *dest = toupper(*orig);
+
+        orig++;
+        dest++;
+
+        while(*orig && esLetra(*orig))
+        {
+            *dest = tolower(*orig);
+
+            orig++;
+            dest++;
+        }
+
+        *dest = ' ';
+    }
+
+    *(dest - 1) = '\0';
+
+    return cadDest;
 }
 
 // Pimera version del ejercicio 1.4 que no funciona del todo
