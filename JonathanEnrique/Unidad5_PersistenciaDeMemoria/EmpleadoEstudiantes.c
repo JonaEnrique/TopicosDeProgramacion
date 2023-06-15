@@ -1,6 +1,6 @@
 #include "EmpleadoEstudiantes.h"
 
-#define TAM_VEC_EMPL 5
+#define TAM_VEC_EMPL 7
 #define TAM_VEC_ESTU 5
 
 // Función de comparación para ordenar los empleados por apellido/nombre/dni
@@ -59,7 +59,9 @@ bool crearArchivoEmpleado(const char *nombreArchEmpl)
                                     {23456789, "Gomez", "Ana", 20000.50},
                                     {34567890, "Gonzalez", "Luis", 30000.50},
                                     {45678901, "Rodriguez", "Maria", 40000.50},
-                                    {56789012, "Fernandez", "Carlos", 50000.50}};
+                                    {56789012, "Fernandez", "Carlos", 50000.50},
+                                    {45784412, "Paredes", "Armando", 70000.50},
+                                    {48518481, "Gonzalez", "Juana", 60000.50}};
 
     qsort(vecEmpl, TAM_VEC_EMPL, sizeof(Empleado), compararEmpleados);
 
@@ -149,4 +151,19 @@ void mostrarArchivoEstudiante(const char *nombreArchEstu)
     fclose(archEstu);
 }
 
+int compararEmplYEst(Empleado* empleado, Estudiante* estudiante)
+{
+    int cmp1 = strcmp(empleado->apellido, estudiante->apellido),
+        cmp2 = strcmp(empleado->nombre, estudiante->nombre),
+        cmp3 = empleado->dni - estudiante->dni;
 
+    if(cmp1 == 0)
+    {
+        if(cmp2 == 0)
+            return cmp3;
+        else
+            return cmp2;
+    }
+
+    return cmp1;
+}

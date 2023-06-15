@@ -22,6 +22,8 @@ typedef struct
     float promedio;
 }Estudiante;
 
+int compararEmplYEst(Empleado* empleado, Estudiante* estudiante);
+
 int compararEmpleados(const void* a, const void* b);
 int compararEstudiantes(const void* a, const void* b);
 

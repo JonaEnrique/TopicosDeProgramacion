@@ -14,3 +14,18 @@
 	<stdbool.h>
 	"EmpleadoEstudiantes.h"
 
+1686783830 source:c:\users\jonathan\desktop\topicosdeprogramacion\jonathanenrique\unidad5_persistenciadememoria\empleadoestudiantes.c
+	"EmpleadoEstudiantes.h"
+
+1686781335 c:\users\jonathan\desktop\topicosdeprogramacion\jonathanenrique\unidad5_persistenciadememoria\empleadoestudiantes.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1686783591 source:c:\users\jonathan\desktop\topicosdeprogramacion\jonathanenrique\unidad5_persistenciadememoria\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"EmpleadoEstudiantes.h"
+
