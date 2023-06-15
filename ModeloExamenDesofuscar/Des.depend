@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1686862951 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\jonathanenrique\des\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
