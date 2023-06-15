@@ -17,6 +17,7 @@ int main(int argc, char* argv[])
     FILE* archEstu = fopen(argv[2], "rb");
     Empleado empl;
     Estudiante estud;
+    int cmp;
 
     if(!archEmpl || !archEstu)
     {
@@ -25,12 +26,46 @@ int main(int argc, char* argv[])
     }
 
     fread(&empl, sizeof(Empleado), 1, archEmpl);
-    fread(&estud, sizeof(Empleado), 1, archEstu);
+    fread(&estud, sizeof(Estudiante), 1, archEstu);
 
     while(!feof(archEmpl) && !feof(archEstu))
     {
-        if(empl)
+        cmp = compararEmplYEst(&empl, &estud);
+
+        if(cmp == 0) // El empleado estudia y trabaja pero tiene que tener promedio más de 7
+        {
+            if(estud.promedio >= 7)
+            {
+                empl.sueldo *= 1.078;
+
+                fseek(archEmpl, -(long)sizeof(Empleado), SEEK_CUR);
+                fwrite(&empl, sizeof(Empleado), 1, archEmpl);
+                fseek(archEmpl, 0L, SEEK_CUR);
+            }
+
+            fread(&empl, sizeof(Empleado), 1, archEmpl);
+            fread(&estud, sizeof(Estudiante), 1, archEstu);
+        }
+
+        if(cmp > 0) // El estudiante no trabaja
+            fread(&estud, sizeof(Estudiante), 1, archEstu);
+
+        if(cmp < 0) // El empleado no estudia
+            fread(&empl, sizeof(Empleado), 1, archEmpl);
+
+
+
     }
+
+
+    // Si termina el ciclo puede terminar porque los dos hicieron fin o porque alguno de los dos hizo fin
+    // Si alguno de los dos hizo dejando al otro sin leer, no interesa porque queria tanto gente sin estudiar
+    // o gente sin trabajar
+
+    // Apunte de elementos de programacion que pasaron al grupo
+
+    printf("\nArchivo empleados actualizado:\n\n");
+    mostrarArchivoEmpleado(argv[1]);
 
     fclose(archEmpl);
     fclose(archEstu);
