@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define TAM 4
+///HEEEEEEEEEEEEEEEEEEEEEEEEEEEY
 /*
 Desarrollar una función para que, dada una matriz cuadrada de reales de orden N,
 obtenga la sumatoria de los elementos que están por encima de
@@ -26,7 +27,16 @@ int main()
     SumatoriaSecundaria(F);
     SumatoriaSecundariaI(F);
     SumatoriaSecundariaBajo(F);
+    SumatoriaSecundariaIN(F);
     return 0;
+}
+
+void SumatoriaSecundariaIN(int T[][TAM]){
+    int S=0;
+    for(int i=0;i<TAM;i++){
+            S+=T[i][TAM-1-i];
+    }
+    printf("Sumatoria Bajo Secundaria: %d\n",S);
 }
 
 void SumatoriaSecundariaBajo(int T[][TAM]){
