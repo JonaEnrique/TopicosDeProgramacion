@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1687064576 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\jonathanenrique\unidad5_persistenciadememoria\bibliotecaarchivos\archivo.c
+	"Archivo.h"
+
+1687064430 d:\datos2023\unlam\topicos\topicosdeprogramacion\jonathanenrique\unidad5_persistenciadememoria\bibliotecaarchivos\archivo.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1687064058 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\jonathanenrique\unidad5_persistenciadememoria\bibliotecaarchivos\main.c
+
