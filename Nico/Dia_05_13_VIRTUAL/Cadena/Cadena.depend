@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1683988260 source:c:\users\ndc\documents\codigos de codeblocks\cadena\cadena.c
+	"Cadena.h"
+
+1683988324 c:\users\ndc\documents\codigos de codeblocks\cadena\cadena.h
+	<ctype.h>
+	<stdbool.h>
+	<stdio.h>
+	<stdlib.h>
+
+1683988806 source:c:\users\ndc\documents\codigos de codeblocks\cadena\main.c
+	"Cadena.h"
+
+1683988260 source:c:\users\ndc\documents\codigos de codeblocks\dia_05_13_virtual\cadena\cadena.c
+	"Cadena.h"
+
+1683988324 c:\users\ndc\documents\codigos de codeblocks\dia_05_13_virtual\cadena\cadena.h
+	<ctype.h>
+	<stdbool.h>
+	<stdio.h>
+	<stdlib.h>
+
+1683988951 source:c:\users\ndc\documents\codigos de codeblocks\dia_05_13_virtual\cadena\main.c
+	"Cadena.h"
+

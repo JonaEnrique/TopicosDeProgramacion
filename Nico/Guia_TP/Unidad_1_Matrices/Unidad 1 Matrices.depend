@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1686889828 source:c:\users\ndc\documents\codigos de codeblocks\unidad 1 matrices\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1686950719 source:c:\e\[8] github\topico proyectos\topicosdeprogramacion\nico\guia_tp\unidad_1_matrices\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1687046139 source:c:\users\ndc\documents\codigos de codeblocks\nico\guia_tp\unidad_1_matrices\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
