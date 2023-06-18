@@ -231,6 +231,7 @@ size_t mi_strlen (char* cadena)
     return cursorCad - cadena; // para referencia ver 5.4 de Kernighan
 }
 
+/*
 void normalizarCadena(char* cadena)
 {
     int finInicio = 0, salto = 0, inicio = 0, palabraDetectada = 0;
@@ -293,7 +294,8 @@ void normalizarCadena(char* cadena)
         }
 
     }
-}
+}*/
+/// Esta version es demasiado rebuscada.
 
 void miToLower(char* caracter)
 {
@@ -302,7 +304,7 @@ void miToLower(char* caracter)
         *caracter += ('a' - 'A');
     }
 
-}
+} // se puede hacer con define
 
 void miToUpper(char* caracter)
 {
@@ -311,7 +313,7 @@ void miToUpper(char* caracter)
         *caracter -= ('a' - 'A');
     }
 
-}
+} // se puede hacer con define
 
 int esPalabra(char* caracter)
 {
@@ -320,4 +322,4 @@ int esPalabra(char* caracter)
          return 1;
     }
     return 0;
-}
+} // se puede hacer con define
