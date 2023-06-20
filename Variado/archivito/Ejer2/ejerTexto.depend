@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1686944400 source:c:\users\lenovo-pc\desktop\topicos\unidad5\ejerciciogenerico\claseconema\masejerconema\ejerciciodearchivodetexto\ejertexto\main.c
+	"header.h"
+
+1686946905 c:\users\lenovo-pc\desktop\topicos\unidad5\ejerciciogenerico\claseconema\masejerconema\ejerciciodearchivodetexto\ejertexto\header.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1686946919 source:c:\users\lenovo-pc\desktop\topicos\unidad5\ejerciciogenerico\claseconema\masejerconema\ejerciciodearchivodetexto\ejertexto\source.c
+	"header.h"
+
+1687153588 source:c:\users\jonathan\desktop\archivito\ejer2\main.c
+	"header.h"
+
+1687199845 c:\users\jonathan\desktop\archivito\ejer2\header.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1687199845 source:c:\users\jonathan\desktop\archivito\ejer2\source.c
+	"header.h"
+

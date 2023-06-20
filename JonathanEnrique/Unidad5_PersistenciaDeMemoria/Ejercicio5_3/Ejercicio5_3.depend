@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1687136043 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\jonathanenrique\unidad5_persistenciadememoria\ejercicio5_3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
