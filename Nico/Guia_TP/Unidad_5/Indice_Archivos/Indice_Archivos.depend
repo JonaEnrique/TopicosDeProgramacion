@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1687319935 source:c:\users\ndc\documents\codigos de codeblocks\nico\guia_tp\unidad_5\indice_archivos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

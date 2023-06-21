@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1687315231 source:c:\users\ndc\documents\codigos de codeblocks\nico\guia_tp\unidad_5\pasaje_binario_a_texto\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

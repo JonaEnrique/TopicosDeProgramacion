@@ -323,9 +323,8 @@ void intercambioInt(void* elemento1, void* elemento2, int filMatriz, int colMatr
 
     int* int1 = (int*) elemento1;
     int* int2 = (int*) elemento2;
-    int* intAuxiliar;
+    int* intAuxiliar = (int*) elemento1;
 
-    *intAuxiliar = 0;
     *intAuxiliar = *int1;
     *int1 = *int2;
     *int2 = *intAuxiliar;
