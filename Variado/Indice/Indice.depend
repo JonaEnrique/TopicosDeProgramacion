@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1687318942 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\indice\empleadoestudiantes.c
+	"EmpleadoEstudiantes.h"
+
+1687315619 d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\indice\empleadoestudiantes.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1687319428 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\indice\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Indice.h"
+
+1687319514 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\indice\indice.c
+	"Indice.h"
+
+1687318566 d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\indice\indice.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"EmpleadoEstudiantes.h"
+

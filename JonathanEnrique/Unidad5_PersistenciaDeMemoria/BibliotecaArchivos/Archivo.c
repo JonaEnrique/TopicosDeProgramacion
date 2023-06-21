@@ -14,4 +14,3 @@ bool abrirArchivo(FILE** fp, const char* nombreArchivo, const char* modoApertura
 
     return true;
 }
-

@@ -55,15 +55,15 @@ bool crearArchivoEmpleado(const char *nombreArchEmpl)
         return false;
     }
 
-    Empleado vecEmpl[TAM_VEC_EMPL] = {{12345678, "Perez", "Juan", 10000.50},
-                                    {23456789, "Gomez", "Ana", 20000.50},
-                                    {34567890, "Gonzalez", "Luis", 30000.50},
-                                    {45678901, "Rodriguez", "Maria", 40000.50},
-                                    {56789012, "Fernandez", "Carlos", 50000.50},
-                                    {45784412, "Paredes", "Armando", 70000.50},
-                                    {48518481, "Gonzalez", "Juana", 60000.50}};
+    Empleado vecEmpl[TAM_VEC_EMPL] = {{1, "Perez", "Juan", 10000.50},
+                                    {3, "Gomez", "Ana", 20000.50},
+                                    {2, "Gonzalez", "Luis", 30000.50},
+                                    {4, "Rodriguez", "Maria", 40000.50},
+                                    {5, "Fernandez", "Carlos", 50000.50},
+                                    {7, "Paredes", "Armando", 70000.50},
+                                    {6, "Gonzalez", "Juana", 60000.50}};
 
-    qsort(vecEmpl, TAM_VEC_EMPL, sizeof(Empleado), compararEmpleados);
+    //qsort(vecEmpl, TAM_VEC_EMPL, sizeof(Empleado), compararEmpleados);
 
     fwrite(vecEmpl, sizeof(Empleado), TAM_VEC_EMPL, archEmpl);
 

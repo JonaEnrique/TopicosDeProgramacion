@@ -1,0 +1,7 @@
+56789012   Fernandez      Carlos50000.50
+23456789       Gomez         Ana21560.54
+48518481    Gonzalez       Juana60000.50
+34567890    Gonzalez        Luis32340.54
+45784412     Paredes     Armando70000.50
+12345678       Perez        Juan10780.54
+45678901   Rodriguez       Maria40000.50

@@ -67,6 +67,8 @@ int main(int argc, char* argv[])
     printf("\nArchivo empleados actualizado:\n\n");
     mostrarArchivoEmpleado(argv[1]);
 
+    convertirBinATxtEmpleado(argv[1], 'F');
+
     fclose(archEmpl);
     fclose(archEstu);
 
