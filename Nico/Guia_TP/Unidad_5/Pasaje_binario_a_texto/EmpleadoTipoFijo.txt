@@ -1,0 +1,7 @@
+00120000Audo          Beme          120000.00
+00245666Audo          Cicu          130000.00
+00348970Dodora        Maca          140000.00
+00424703Nahuel        Escala        150000.00
+00526874Pepe          Cipres        160000.00
+00632465Roberto       La Pantera    170000.00
+00765468Xalam         Blanco        180000.00
