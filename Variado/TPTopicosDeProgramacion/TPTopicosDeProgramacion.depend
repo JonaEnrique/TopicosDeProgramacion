@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1687566536 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\tptopicosdeprogramacion\source.c
+	"header.h"
+
+1687566440 d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\tptopicosdeprogramacion\header.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1687566511 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\tptopicosdeprogramacion\main.c
+	<stdio.h>
+	<stdlib.h>
+	"header.h"
+
