@@ -22,8 +22,8 @@ int crearArchivoAlumno(const char *nombreDelArchivo)
     if (arch == NULL)
         return 0;
 
-    t_alumno vecAlum[TAM_VEC_ALUM] = {{12345678, "Perez, Juan", 'M', "ISI", 0, 'A'},
-                                      {23456789, "Gonzalez, Maria", 'F', "ISI", 0, 'A'}};
+    t_alumno vecAlum[TAM_VEC_ALUM] = {{12345678, "Perez, Juan", {1, 1, 2001}, 'M', {8, 5, 2021}, "ISI", 0, 'A'},
+                                      {23456789, "Gonzalez, Maria", {2, 1, 2001}, 'F', {9, 7, 2021}, "ISI", 0, 'A'}};
 
     fwrite(vecAlum, sizeof(t_alumno), TAM_VEC_ALUM, arch);
 
@@ -74,7 +74,7 @@ int compararDNI(const void *a, const void *b)
     return indA->dni - indB->dni;
 }
 
-void ingresoPorTecladoAlums(const char *nombreDelArchivo, t_indice *indice, int *cantRegistros)
+void ingresoPorTecladoAlums(const char *nombreDelArchivo, t_indice *indice, int *cantRegistros, Fecha fechaProceso)
 {
     FILE *archAlum = fopen(nombreDelArchivo, "r+b");
 
@@ -111,12 +111,17 @@ void ingresoPorTecladoAlums(const char *nombreDelArchivo, t_indice *indice, int 
             gets(alumNue.apellYNombre);
         } while (strlen(alumNue.apellYNombre) > 50);
 
+        printf("Ingrese fecha de nacimiento: ");
+        alumNue.fechaNac = ingresarFecha();
+
         do
         {
             printf("Ingrese sexo: ");
             fflush(stdin);
             scanf("%c", &alumNue.sexo);
         } while (alumNue.sexo != 'M' && alumNue.sexo != 'F');
+
+        alumNue.fechaIngreso = fechaProceso;
 
         do
         {
@@ -198,7 +203,9 @@ void mostrarArchAlum(const char *nombreDelArchivo)
 
     while (!feof(archAlum))
     {
-        printf("%ld %s %c %s %d %c\n", alum.dni, alum.apellYNombre, alum.sexo, alum.carrera, alum.cantMatAprob, alum.estado);
+        printf("%ld %s %d/%d/%d %c %d/%d/%d %s %d %c\n", alum.dni, alum.apellYNombre,
+               alum.fechaNac.dia, alum.fechaNac.mes, alum.fechaNac.anio,
+               alum.sexo, alum.fechaIngreso.dia, alum.fechaIngreso.mes, alum.fechaIngreso.anio, alum.carrera, alum.cantMatAprob, alum.estado);
         fread(&alum, sizeof(t_alumno), 1, archAlum);
     }
 
@@ -213,7 +220,7 @@ void ordenarSeleccion(void *vec, int cantElem, size_t tamElem, int (*cmp)(const 
     {
         posMin = i;
         for (int j = i + 1; j < cantElem; j++)
-            if (cmp(vec + posMin * tamElem, vec + j * tamElem))
+            if (cmp(vec + posMin * tamElem, vec + j * tamElem) > 0)
                 posMin = j;
 
         intercambiar(vec + i * tamElem, vec + posMin * tamElem, tamElem);
@@ -234,7 +241,7 @@ void intercambiar(void *a, void *b, size_t tamElem)
     free(aux);
 }
 
-void darDeBajaAlum(const char *nombreArch, t_indice *indice, int *cantReginstros)
+void darDeBajaAlum(const char *nombreArch, t_indice *indice, int *cantReginstros, Fecha fechaProceso)
 {
     FILE *archAlum = fopen(nombreArch, "r+b");
 
@@ -251,14 +258,16 @@ void darDeBajaAlum(const char *nombreArch, t_indice *indice, int *cantReginstros
         scanf("%ld", &alumInd.dni);
     } while ((alumInd.dni <= 10000000 || alumInd.dni >= 99999999));
 
-    if(buscarEnIndiceAlum(indice, &alumInd, *cantReginstros)){
+    if (buscarEnIndiceAlum(indice, &alumInd, *cantReginstros))
+    {
         fseek(archAlum, alumInd.ind * sizeof(t_alumno), SEEK_SET);
         fread(&alum, sizeof(t_alumno), 1, archAlum);
 
         alum.estado = 'B';
+        alum.fechaIngreso = fechaProceso;
 
         fseek(archAlum, -(long)sizeof(t_alumno), SEEK_CUR);
-        //fseek(archAlum, 0L, SEEK_CUR);
+        // fseek(archAlum, 0L, SEEK_CUR);
         fwrite(&alum, sizeof(t_alumno), 1, archAlum);
 
         eliminarDeIndiceAlum(indice, &alumInd, cantReginstros);
@@ -269,7 +278,7 @@ void darDeBajaAlum(const char *nombreArch, t_indice *indice, int *cantReginstros
     fclose(archAlum);
 }
 
-int eliminarDeIndiceAlum(t_indice* indice, t_indice* alumno, int* cantRegistros)
+int eliminarDeIndiceAlum(t_indice *indice, t_indice *alumno, int *cantRegistros)
 {
     int i = 0;
 
@@ -289,7 +298,7 @@ int eliminarDeIndiceAlum(t_indice* indice, t_indice* alumno, int* cantRegistros)
     return 1;
 }
 
-int buscarAlum(const char* nombreDelArchivo, t_indice* indice, int cantRegistros)
+int buscarAlum(const char *nombreDelArchivo, t_indice *indice, int cantRegistros)
 {
     FILE *archAlum = fopen(nombreDelArchivo, "rb");
 
@@ -306,11 +315,14 @@ int buscarAlum(const char* nombreDelArchivo, t_indice* indice, int cantRegistros
         scanf("%ld", &alumInd.dni);
     } while ((alumInd.dni <= 10000000 || alumInd.dni >= 99999999));
 
-    if(buscarEnIndiceAlum(indice, &alumInd, cantRegistros)){
+    if (buscarEnIndiceAlum(indice, &alumInd, cantRegistros))
+    {
         fseek(archAlum, alumInd.ind * sizeof(t_alumno), SEEK_SET);
         fread(&alum, sizeof(t_alumno), 1, archAlum);
 
-        printf("%ld %s %c %s %d %c\n", alum.dni, alum.apellYNombre, alum.sexo, alum.carrera, alum.cantMatAprob, alum.estado);
+        printf("%ld %s %d/%d/%d %c %d/%d/%d %s %d %c\n", alum.dni, alum.apellYNombre,
+               alum.fechaNac.dia, alum.fechaNac.mes, alum.fechaNac.anio,
+               alum.sexo, alum.fechaIngreso.dia, alum.fechaIngreso.mes, alum.fechaIngreso.anio, alum.carrera, alum.cantMatAprob, alum.estado);
     }
     else
         puts("No se encontro el alumno.");
@@ -320,29 +332,7 @@ int buscarAlum(const char* nombreDelArchivo, t_indice* indice, int cantRegistros
     return 1;
 }
 
-void mostrarAlumnosDadosDeBaja(const char* nombreDelArchivo)
-{
-    FILE* archAlum = fopen(nombreDelArchivo, "rb");
-
-    if(!archAlum)
-        return;
-
-    t_alumno alum;
-
-    fread(&alum, sizeof(t_alumno), 1, archAlum);
-
-    while(!feof(archAlum))
-    {
-        if(alum.estado == 'B')
-            printf("%ld %s %c %s %d %c\n", alum.dni, alum.apellYNombre, alum.sexo, alum.carrera, alum.cantMatAprob, alum.estado);
-
-        fread(&alum, sizeof(t_alumno), 1, archAlum);
-    }
-
-    fclose(archAlum);
-}
-
-void mostrarAlumnosEnOrden(const char* nombreDelArchivo, t_indice* indice, int cantRegistros)
+void mostrarAlumnosDadosDeBaja(const char *nombreDelArchivo)
 {
     FILE *archAlum = fopen(nombreDelArchivo, "rb");
 
@@ -350,17 +340,43 @@ void mostrarAlumnosEnOrden(const char* nombreDelArchivo, t_indice* indice, int c
         return;
 
     t_alumno alum;
-    t_indice* cInd = indice;
 
-    for(int i = 0; i < cantRegistros; i++){
+    fread(&alum, sizeof(t_alumno), 1, archAlum);
+
+    while (!feof(archAlum))
+    {
+        if (alum.estado == 'B')
+            printf("%ld %s %d/%d/%d %c %d/%d/%d %s %d %c\n", alum.dni, alum.apellYNombre,
+                   alum.fechaNac.dia, alum.fechaNac.mes, alum.fechaNac.anio,
+                   alum.sexo, alum.fechaIngreso.dia, alum.fechaIngreso.mes, alum.fechaIngreso.anio, alum.carrera, alum.cantMatAprob, alum.estado);
+
+        fread(&alum, sizeof(t_alumno), 1, archAlum);
+    }
+
+    fclose(archAlum);
+}
+
+void mostrarAlumnosEnOrden(const char *nombreDelArchivo, t_indice *indice, int cantRegistros)
+{
+    FILE *archAlum = fopen(nombreDelArchivo, "rb");
+
+    if (!archAlum)
+        return;
+
+    t_alumno alum;
+    t_indice *cInd = indice;
+
+    for (int i = 0; i < cantRegistros; i++)
+    {
         fseek(archAlum, cInd->ind * sizeof(t_alumno), SEEK_SET);
         fread(&alum, sizeof(t_alumno), 1, archAlum);
 
-        printf("%ld %s %c %s %d %c\n", alum.dni, alum.apellYNombre, alum.sexo, alum.carrera, alum.cantMatAprob, alum.estado);
+        printf("%ld %s %d/%d/%d %c %d/%d/%d %s %d %c\n", alum.dni, alum.apellYNombre,
+               alum.fechaNac.dia, alum.fechaNac.mes, alum.fechaNac.anio,
+               alum.sexo, alum.fechaIngreso.dia, alum.fechaIngreso.mes, alum.fechaIngreso.anio, alum.carrera, alum.cantMatAprob, alum.estado);
 
         cInd++;
     }
-
 
     fclose(archAlum);
 }

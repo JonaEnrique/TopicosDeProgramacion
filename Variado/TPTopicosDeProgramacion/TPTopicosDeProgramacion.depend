@@ -1,15 +1,23 @@
 # depslib dependency file v1.0
-1687658150 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\tptopicosdeprogramacion\source.c
+1687666151 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\tptopicosdeprogramacion\source.c
 	"header.h"
 
-1687658157 d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\tptopicosdeprogramacion\header.h
+1687666141 d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\tptopicosdeprogramacion\header.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
+	"Fecha.h"
 
-1687657482 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\tptopicosdeprogramacion\main.c
+1687666160 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\tptopicosdeprogramacion\main.c
 	<stdio.h>
 	<stdlib.h>
 	"header.h"
+
+1687664645 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\tptopicosdeprogramacion\fecha.c
+	"Fecha.h"
+
+1687663284 d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\tptopicosdeprogramacion\fecha.h
+	<stdio.h>
+	<stdlib.h>
 

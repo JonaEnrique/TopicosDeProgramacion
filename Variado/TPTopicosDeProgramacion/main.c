@@ -7,6 +7,10 @@ int main(int argc, char* argv[])
     char op;
 
     // Ingresar fecha de proceso
+    Fecha fechaProceso;
+
+    printf("Ingrese fecha de proceso: ");
+    fechaProceso = ingresarFecha();
 
     // Validar argv[1]
     crearArchivoAlumno(argv[1]);
@@ -29,10 +33,10 @@ int main(int argc, char* argv[])
         switch(op)
         {
         case 'A':
-            ingresoPorTecladoAlums(argv[1], indice, &cant);
+            ingresoPorTecladoAlums(argv[1], indice, &cant, fechaProceso);
             break;
         case 'B':
-            darDeBajaAlum(argv[1], indice, &cant);
+            darDeBajaAlum(argv[1], indice, &cant, fechaProceso);
             break;
         case 'F':
             buscarAlum(argv[1], indice, cant);
