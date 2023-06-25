@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1687620690 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\prueba\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+

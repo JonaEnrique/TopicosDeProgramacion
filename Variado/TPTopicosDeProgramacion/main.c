@@ -16,23 +16,58 @@ int main(int argc, char* argv[])
     int cant = TAM_VEC_ALUM;
 
     op = mostrarMenu("Elija una opcion\n\n"
-                        "A - Alta\n"
-                        "B - Baja\n"
-                        "F - Buscar\n"
-                        "D - Listar los datos de bajo\n"
-                        "O - Listar en orden\n"
-                        "--> ",
-                        "ABS");
-    switch(op)
+                     "A - Alta\n"
+                     "B - Baja\n"
+                     "F - Buscar\n"
+                     "D - Listar los datos de bajo\n"
+                     "O - Listar en orden\n"
+                     "S - Salir de menu"
+                     "--> ",
+                     "ABFDOS");
+    while(op != 'S')
     {
+        switch(op)
+        {
         case 'A':
             ingresoPorTecladoAlums(argv[1], indice, &cant);
             break;
+        case 'B':
+            darDeBajaAlum(argv[1], indice, &cant);
+            break;
+        case 'F':
+            buscarAlum(argv[1], indice, cant);
+            break;
+        case 'D':
+            mostrarAlumnosDadosDeBaja(argv[1]);
+            break;
+        case 'O':
+            mostrarAlumnosEnOrden(argv[1], indice, cant);
+            break;
+        }
+
+        system("pause");  // Pausar la ejecución hasta que el usuario presione una tecla
+        system("cls");    // Borrar la pantalla
+
+        op = mostrarMenu("Elija una opcion\n\n"
+                     "A - Alta\n"
+                     "B - Baja\n"
+                     "F - Buscar\n"
+                     "D - Listar los datos de bajo\n"
+                     "O - Listar en orden\n"
+                     "S - Salir de menu"
+                     "--> ",
+                     "ABFDOS");
     }
 
-//    for(int i = 0; i < cant; i++){
-//        printf("%ld %d\n", indice[i].dni, indice[i].ind);
-//    }
+    system("cls");
+
+
+    // Indice
+    printf("Indice:\n");
+    for(int i = 0; i < cant; i++)
+    {
+        printf("%ld %d\n", indice[i].dni, indice[i].ind);
+    }
 
     // Archivo alumnos
     printf("\nAlumnos:\n");

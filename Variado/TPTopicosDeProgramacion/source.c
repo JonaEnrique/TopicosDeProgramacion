@@ -9,6 +9,7 @@ char mostrarMenu(const char *msj, const char *opc)
         printf("%s", msj);
         fflush(stdin);
         scanf("%c", &op);
+        op = toupper(op);
     } while (strchr(opc, op) == NULL);
 
     return op;
@@ -53,29 +54,27 @@ t_indice *crearIndiceAlumno(const char *nombreDelArchivo, int cantRegistros) // 
         cInd->dni = alum.dni;
         cInd->ind = i;
 
-        printf("Se creo en indice: %ld %d\n", cInd->dni, cInd->ind);
-
         i++;
         cInd++;
         fread(&alum, sizeof(t_alumno), 1, archAlum);
     }
 
-    qsort(indice, cantRegistros, sizeof(t_indice), compararDNI);
+    ordenarSeleccion(indice, cantRegistros, sizeof(t_indice), compararDNI);
 
     fclose(archAlum);
 
     return indice;
 }
 
-int compararDNI(const void* a, const void* b)
+int compararDNI(const void *a, const void *b)
 {
-    t_indice* indA = (t_indice*)a;
-    t_indice* indB = (t_indice*)b;
+    t_indice *indA = (t_indice *)a;
+    t_indice *indB = (t_indice *)b;
 
     return indA->dni - indB->dni;
 }
 
-void ingresoPorTecladoAlums(const char *nombreDelArchivo, t_indice *indice, int* cantRegistros)
+void ingresoPorTecladoAlums(const char *nombreDelArchivo, t_indice *indice, int *cantRegistros)
 {
     FILE *archAlum = fopen(nombreDelArchivo, "r+b");
 
@@ -140,7 +139,7 @@ void ingresoPorTecladoAlums(const char *nombreDelArchivo, t_indice *indice, int*
 
         indice = realloc(indice, (*cantRegistros + 1) * sizeof(t_indice));
 
-        if(!indice)
+        if (!indice)
             return;
 
         alumIndNue.dni = alumNue.dni;
@@ -150,7 +149,7 @@ void ingresoPorTecladoAlums(const char *nombreDelArchivo, t_indice *indice, int*
 
         (*cantRegistros)++;
 
-        qsort(indice, *cantRegistros, sizeof(t_indice), compararDNI);
+        ordenarSeleccion(indice, *cantRegistros, sizeof(t_indice), compararDNI);
 
         /* Nuevo ingreso */
 
@@ -167,13 +166,17 @@ void ingresoPorTecladoAlums(const char *nombreDelArchivo, t_indice *indice, int*
 
 int buscarEnIndiceAlum(t_indice *indice, t_indice *alumno, int cantRegistros)
 {
-    t_indice* cInd = indice;
+    t_indice *cInd = indice;
 
-    for(int i = 0; i < cantRegistros; i++){
-        if(alumno->dni == cInd->dni){
+    for (int i = 0; i < cantRegistros; i++)
+    {
+        if (alumno->dni == cInd->dni)
+        {
             alumno->ind = cInd->ind;
             return 1;
         }
+
+        cInd++;
     }
 
     return 0;
@@ -198,6 +201,166 @@ void mostrarArchAlum(const char *nombreDelArchivo)
         printf("%ld %s %c %s %d %c\n", alum.dni, alum.apellYNombre, alum.sexo, alum.carrera, alum.cantMatAprob, alum.estado);
         fread(&alum, sizeof(t_alumno), 1, archAlum);
     }
+
+    fclose(archAlum);
+}
+
+void ordenarSeleccion(void *vec, int cantElem, size_t tamElem, int (*cmp)(const void *a, const void *b))
+{
+    int posMin;
+
+    for (int i = 0; i < cantElem - 1; i++)
+    {
+        posMin = i;
+        for (int j = i + 1; j < cantElem; j++)
+            if (cmp(vec + posMin * tamElem, vec + j * tamElem))
+                posMin = j;
+
+        intercambiar(vec + i * tamElem, vec + posMin * tamElem, tamElem);
+    }
+}
+
+void intercambiar(void *a, void *b, size_t tamElem)
+{
+    void *aux = malloc(tamElem);
+
+    if (!aux)
+        return;
+
+    memcpy(aux, a, tamElem);
+    memcpy(a, b, tamElem);
+    memcpy(b, aux, tamElem);
+
+    free(aux);
+}
+
+void darDeBajaAlum(const char *nombreArch, t_indice *indice, int *cantReginstros)
+{
+    FILE *archAlum = fopen(nombreArch, "r+b");
+
+    if (!archAlum)
+        return;
+
+    t_alumno alum;
+    t_indice alumInd;
+
+    do
+    {
+        printf("Ingrese DNI de la persona a dar de baja: ");
+        fflush(stdin);
+        scanf("%ld", &alumInd.dni);
+    } while ((alumInd.dni <= 10000000 || alumInd.dni >= 99999999));
+
+    if(buscarEnIndiceAlum(indice, &alumInd, *cantReginstros)){
+        fseek(archAlum, alumInd.ind * sizeof(t_alumno), SEEK_SET);
+        fread(&alum, sizeof(t_alumno), 1, archAlum);
+
+        alum.estado = 'B';
+
+        fseek(archAlum, -(long)sizeof(t_alumno), SEEK_CUR);
+        //fseek(archAlum, 0L, SEEK_CUR);
+        fwrite(&alum, sizeof(t_alumno), 1, archAlum);
+
+        eliminarDeIndiceAlum(indice, &alumInd, cantReginstros);
+    }
+    else
+        puts("No se encontro el alumno.");
+
+    fclose(archAlum);
+}
+
+int eliminarDeIndiceAlum(t_indice* indice, t_indice* alumno, int* cantRegistros)
+{
+    int i = 0;
+
+    while (i < *cantRegistros && alumno->dni != (indice + i)->dni)
+        i++;
+
+    if (i == *cantRegistros)
+        return 0;
+
+    for (; i < *cantRegistros - 1; i++)
+        *(indice + i) = *(indice + i + 1);
+
+    *cantRegistros = *cantRegistros - 1;
+
+    indice = realloc(indice, *cantRegistros * sizeof(t_indice));
+
+    return 1;
+}
+
+int buscarAlum(const char* nombreDelArchivo, t_indice* indice, int cantRegistros)
+{
+    FILE *archAlum = fopen(nombreDelArchivo, "rb");
+
+    if (!archAlum)
+        return 0;
+
+    t_alumno alum;
+    t_indice alumInd;
+
+    do
+    {
+        printf("Ingrese DNI de la persona a buscar: ");
+        fflush(stdin);
+        scanf("%ld", &alumInd.dni);
+    } while ((alumInd.dni <= 10000000 || alumInd.dni >= 99999999));
+
+    if(buscarEnIndiceAlum(indice, &alumInd, cantRegistros)){
+        fseek(archAlum, alumInd.ind * sizeof(t_alumno), SEEK_SET);
+        fread(&alum, sizeof(t_alumno), 1, archAlum);
+
+        printf("%ld %s %c %s %d %c\n", alum.dni, alum.apellYNombre, alum.sexo, alum.carrera, alum.cantMatAprob, alum.estado);
+    }
+    else
+        puts("No se encontro el alumno.");
+
+    fclose(archAlum);
+
+    return 1;
+}
+
+void mostrarAlumnosDadosDeBaja(const char* nombreDelArchivo)
+{
+    FILE* archAlum = fopen(nombreDelArchivo, "rb");
+
+    if(!archAlum)
+        return;
+
+    t_alumno alum;
+
+    fread(&alum, sizeof(t_alumno), 1, archAlum);
+
+    while(!feof(archAlum))
+    {
+        if(alum.estado == 'B')
+            printf("%ld %s %c %s %d %c\n", alum.dni, alum.apellYNombre, alum.sexo, alum.carrera, alum.cantMatAprob, alum.estado);
+
+        fread(&alum, sizeof(t_alumno), 1, archAlum);
+    }
+
+    fclose(archAlum);
+}
+
+void mostrarAlumnosEnOrden(const char* nombreDelArchivo, t_indice* indice, int cantRegistros)
+{
+    FILE *archAlum = fopen(nombreDelArchivo, "rb");
+
+    if (!archAlum)
+        return;
+
+    t_alumno alum;
+    t_indice* cInd = indice;
+
+    for(int i = 0; i < cantRegistros; i++){
+        fseek(archAlum, cInd->ind * sizeof(t_alumno), SEEK_SET);
+        fread(&alum, sizeof(t_alumno), 1, archAlum);
+
+        printf("%ld %s %c %s %d %c\n", alum.dni, alum.apellYNombre, alum.sexo, alum.carrera, alum.cantMatAprob, alum.estado);
+
+        cInd++;
+    }
+
 
     fclose(archAlum);
 }
