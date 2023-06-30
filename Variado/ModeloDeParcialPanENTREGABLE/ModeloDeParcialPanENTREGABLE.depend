@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1687824598 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\modelodeparcialpanentregable\source.c
+	"Header.h"
+
+1687821815 d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\modelodeparcialpanentregable\header.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1687738733 source:d:\datos2023\unlam\topicos\topicosdeprogramacion\variado\modelodeparcialpanentregable\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Header.h"
+

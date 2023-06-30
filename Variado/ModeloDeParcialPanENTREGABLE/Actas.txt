@@ -1,0 +1,10 @@
+1|Juan|10.00|8.00|A|A|9.00|Pro
+4.00|2.00|4.00|A|Err
+2|Pedro|2.00|4.00|2.00|4.00|A|Err
+3|Maria|6.00|7.00|A|7.00|6.50|Apr
+4|Jose|9.00|A|A|A|A|Aus
+5|Ana|10.00|10.00|A|A|10.00|Pro
+6|Lucia|8.00|9.00|A|A|8.50|Pro
+7|Carlos|7.00|8.00|A|A|7.50|Pro
+8|Miguel|6.00|7.00|A|A|6.50|Apr
+9|Sofia|4.00|A|A|A|A|Aus
