@@ -30,7 +30,7 @@ int main()
     char cadenaPrueba6[] = "DAAHHHola TESTEO Hola DEl";
     char palabraPrueba6[] = "Hola";
     char cadenaPrueba7[] = " ESTO es  UNA prueba         P2456aRa SAbEr  si  eSTO      si funciona     .   ";
-    char CadenaPrueba8[] = "  )  funciona";
+    char CadenaPrueba8[] = "funciona     .   ";
 
     int ce = 10, tamVec = 10, ceCP2 = 16, ceCP3 = 4, resultadoSumaCadenas = 0,testSumaCadenas = 0, tamCadena = 0, tamCadena2 = 0, halladas = 0;
     bool valor;

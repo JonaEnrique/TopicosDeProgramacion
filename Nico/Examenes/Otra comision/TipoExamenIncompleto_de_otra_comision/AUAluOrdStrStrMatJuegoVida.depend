@@ -1,0 +1,105 @@
+# depslib dependency file v1.0
+1687466406 source:/media/psoligo/DB1/git/Progra1110/Exams/AUOrdStrStrMatrizJuegoVida/Examen/examen.c
+	<stdio.h>
+
+1687467434 source:/media/psoligo/DB1/git/Progra1110/Exams/AUOrdStrStrMatrizJuegoVida/Examen/main.c
+	<stdio.h>
+	<stdlib.h>
+	"minunit.h"
+	"examen.h"
+
+1687460666 /media/psoligo/DB1/git/Progra1110/Exams/AUOrdStrStrMatrizJuegoVida/Examen/minunit.h
+	<Windows.h>
+	<unistd.h>
+	<time.h>
+	<sys/time.h>
+	<sys/resource.h>
+	<sys/times.h>
+	<string.h>
+	<mach/mach.h>
+	<mach/mach_time.h>
+	<stdio.h>
+	<math.h>
+
+1687466682 /media/psoligo/DB1/git/Progra1110/Exams/AUOrdStrStrMatrizJuegoVida/Examen/examen.h
+
+1687469856 source:d:\git\programacion\exams\auordstrstrmatrizjuegovida\examen\main.c
+	<stdio.h>
+	<stdlib.h>
+	"minunit.h"
+	"examen.h"
+
+1687468573 d:\git\programacion\exams\auordstrstrmatrizjuegovida\examen\minunit.h
+	<Windows.h>
+	<unistd.h>
+	<time.h>
+	<sys/time.h>
+	<sys/resource.h>
+	<sys/times.h>
+	<string.h>
+	<mach/mach.h>
+	<mach/mach_time.h>
+	<stdio.h>
+	<math.h>
+
+1687468573 d:\git\programacion\exams\auordstrstrmatrizjuegovida\examen\examen.h
+
+1687468832 source:d:\git\programacion\exams\auordstrstrmatrizjuegovida\examen\examen.c
+	<stdio.h>
+
+1688063302 source:d:\tati\programacion\4ta_cursada\tipoexamenincompleto\examen.c
+	<stdio.h>
+	<stdlib.h>
+	"examen.h"
+	<ctype.h>
+	<string.h>
+
+1687468573 d:\tati\programacion\4ta_cursada\tipoexamenincompleto\examen.h
+
+1687973696 source:d:\tati\programacion\4ta_cursada\tipoexamenincompleto\main.c
+	<stdio.h>
+	<stdlib.h>
+	"minunit.h"
+	"examen.h"
+
+1687468573 d:\tati\programacion\4ta_cursada\tipoexamenincompleto\minunit.h
+	<Windows.h>
+	<unistd.h>
+	<time.h>
+	<sys/time.h>
+	<sys/resource.h>
+	<sys/times.h>
+	<string.h>
+	<mach/mach.h>
+	<mach/mach_time.h>
+	<stdio.h>
+	<math.h>
+
+1688063302 source:c:\users\ndc\desktop\tipoexamenincompleto\examen.c
+	<stdio.h>
+	<stdlib.h>
+	"examen.h"
+	<ctype.h>
+	<string.h>
+
+1687468573 c:\users\ndc\desktop\tipoexamenincompleto\examen.h
+
+1688152753 source:c:\users\ndc\desktop\tipoexamenincompleto\main.c
+	<stdio.h>
+	<stdlib.h>
+	"minunit.h"
+	"examen.h"
+
+1687468573 c:\users\ndc\desktop\tipoexamenincompleto\minunit.h
+	<Windows.h>
+	<unistd.h>
+	<time.h>
+	<sys/time.h>
+	<sys/resource.h>
+	<sys/times.h>
+	<string.h>
+	<mach/mach.h>
+	<mach/mach_time.h>
+	<stdio.h>
+	<math.h>
+

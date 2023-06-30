@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1687737480 source:c:\users\ndc\documents\codigosdecodeblocks\nico\dia_06_24_archivos_texto\archivotextosegundointento\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../Dia_04_15_VIRTUAL/FechaLib/Fecha.h"
+
+1683307008 c:\users\ndc\documents\codigosdecodeblocks\nico\dia_04_15_virtual\fechalib\fecha.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<stdbool.h>
+

@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1687043225 source:c:\onedrive\onedrive - universidad nacional de la matanza\unlam\programacion\examenesenmaquina\2023-06-22_plazosfijos_entregable\parcialplazosfijostopicos\main.c
+	<stdio.h>
+	"../Fecha/Fecha.h"
+	"../SolucionParcialPlazosFijosTopicos/SolucionParcialPlazosFijos.h"
+
+1687034248 c:\onedrive\onedrive - universidad nacional de la matanza\unlam\programacion\examenesenmaquina\2023-06-22_plazosfijos_entregable\fecha\fecha.h
+	<stdbool.h>
+
+1687038941 c:\onedrive\onedrive - universidad nacional de la matanza\unlam\programacion\examenesenmaquina\2023-06-22_plazosfijos_entregable\solucionparcialplazosfijostopicos\solucionparcialplazosfijos.h
+	"PlazoFijo.h"
+
+1687020626 c:\onedrive\onedrive - universidad nacional de la matanza\unlam\programacion\examenesenmaquina\2023-06-22_plazosfijos_entregable\solucionparcialplazosfijostopicos\plazofijo.h
+	"../Fecha/Fecha.h"
+
+1687485245 source:c:\users\laboratorios\desktop\2023-06-22_plazosfijos_entregable\2023-06-22_plazosfijos_entregable\parcialplazosfijostopicos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../Fecha/Fecha.h"
+	"../SolucionParcialPlazosFijosTopicos/SolucionParcialPlazosFijos.h"
+
+1687034248 c:\users\laboratorios\desktop\2023-06-22_plazosfijos_entregable\2023-06-22_plazosfijos_entregable\fecha\fecha.h
+	<stdbool.h>
+
+1687038941 c:\users\laboratorios\desktop\2023-06-22_plazosfijos_entregable\2023-06-22_plazosfijos_entregable\solucionparcialplazosfijostopicos\solucionparcialplazosfijos.h
+	"PlazoFijo.h"
+
+1687020626 c:\users\laboratorios\desktop\2023-06-22_plazosfijos_entregable\2023-06-22_plazosfijos_entregable\solucionparcialplazosfijostopicos\plazofijo.h
+	"../Fecha/Fecha.h"
+
+1687645038 source:c:\users\jonathan\desktop\2023-06-22_plazosfijos_entregable\2023-06-22_plazosfijos_entregable\parcialplazosfijostopicos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../Fecha/Fecha.h"
+	"../SolucionParcialPlazosFijosTopicos/SolucionParcialPlazosFijos.h"
+
+1687034248 c:\users\jonathan\desktop\2023-06-22_plazosfijos_entregable\2023-06-22_plazosfijos_entregable\fecha\fecha.h
+	<stdbool.h>
+
+1687038941 c:\users\jonathan\desktop\2023-06-22_plazosfijos_entregable\2023-06-22_plazosfijos_entregable\solucionparcialplazosfijostopicos\solucionparcialplazosfijos.h
+	"PlazoFijo.h"
+
+1687020626 c:\users\jonathan\desktop\2023-06-22_plazosfijos_entregable\2023-06-22_plazosfijos_entregable\solucionparcialplazosfijostopicos\plazofijo.h
+	"../Fecha/Fecha.h"
+
+1688065595 source:c:\users\ndc\desktop\2023-06-22_plazosfijos_entregable\2023-06-22_plazosfijos_entregable\parcialplazosfijostopicos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../Fecha/Fecha.h"
+	"../SolucionParcialPlazosFijosTopicos/SolucionParcialPlazosFijos.h"
+
+1687034248 c:\users\ndc\desktop\2023-06-22_plazosfijos_entregable\2023-06-22_plazosfijos_entregable\fecha\fecha.h
+	<stdbool.h>
+
+1688006483 c:\users\ndc\desktop\2023-06-22_plazosfijos_entregable\2023-06-22_plazosfijos_entregable\solucionparcialplazosfijostopicos\solucionparcialplazosfijos.h
+	"PlazoFijo.h"
+
+1687645054 c:\users\ndc\desktop\2023-06-22_plazosfijos_entregable\2023-06-22_plazosfijos_entregable\solucionparcialplazosfijostopicos\plazofijo.h
+	"../Fecha/Fecha.h"
+

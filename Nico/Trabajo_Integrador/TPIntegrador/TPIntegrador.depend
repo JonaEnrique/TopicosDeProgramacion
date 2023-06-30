@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1687650562 source:c:\users\ndc\documents\codigos de codeblocks\nico\trabajo integrador\tpintegrador\integrador.c
+	"integrador.h"
+
+1687649894 c:\users\ndc\documents\codigos de codeblocks\nico\trabajo integrador\tpintegrador\integrador.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+
+1687650248 source:c:\users\ndc\documents\codigos de codeblocks\nico\trabajo integrador\tpintegrador\main.c
+	"Integrador.h"
+
+1687650562 source:c:\users\ndc\documents\codigos de codeblocks\nico\trabajo_integrador\tpintegrador\integrador.c
+	"integrador.h"
+
+1687649894 c:\users\ndc\documents\codigos de codeblocks\nico\trabajo_integrador\tpintegrador\integrador.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+
+1687650248 source:c:\users\ndc\documents\codigos de codeblocks\nico\trabajo_integrador\tpintegrador\main.c
+	"Integrador.h"
+
+1687726393 source:c:\users\ndc\documents\codigosdecodeblocks\nico\trabajo_integrador\tpintegrador\integrador.c
+	"integrador.h"
+
+1687725829 c:\users\ndc\documents\codigosdecodeblocks\nico\trabajo_integrador\tpintegrador\integrador.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+
+1687723359 source:c:\users\ndc\documents\codigosdecodeblocks\nico\trabajo_integrador\tpintegrador\main.c
+	"Integrador.h"
+

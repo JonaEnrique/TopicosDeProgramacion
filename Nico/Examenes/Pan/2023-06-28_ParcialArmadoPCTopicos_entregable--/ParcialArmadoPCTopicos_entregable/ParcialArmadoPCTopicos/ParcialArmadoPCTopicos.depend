@@ -1,0 +1,51 @@
+# depslib dependency file v1.0
+1687960027 source:c:\users\laboratorios\desktop\2023-06-28_parcialarmadopctopicos_entregable--\parcialarmadopctopicos_entregable\parcialarmadopctopicos\main.c
+	<locale.h>
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	"../SolucionParcialArmadoPCTopicos/TiposArmadoPC.h"
+	"../SolucionParcialArmadoPCTopicos/SolucionParcialArmadoPC.h"
+
+1687952204 c:\users\laboratorios\desktop\2023-06-28_parcialarmadopctopicos_entregable--\parcialarmadopctopicos_entregable\solucionparcialarmadopctopicos\tiposarmadopc.h
+
+1687640731 c:\users\laboratorios\desktop\2023-06-28_parcialarmadopctopicos_entregable--\parcialarmadopctopicos_entregable\solucionparcialarmadopctopicos\solucionparcialarmadopc.h
+	"../Vector/Vector.h"
+
+1687640731 c:\users\laboratorios\desktop\2023-06-28_parcialarmadopctopicos_entregable--\parcialarmadopctopicos_entregable\vector\vector.h
+	<stddef.h>
+	<stdbool.h>
+
+1687967419 source:c:\users\usuario\downloads\2023-06-28_parcialarmadopctopicos_entregable--\parcialarmadopctopicos_entregable\parcialarmadopctopicos\main.c
+	<locale.h>
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	"../SolucionParcialArmadoPCTopicos/TiposArmadoPC.h"
+	"../SolucionParcialArmadoPCTopicos/SolucionParcialArmadoPC.h"
+
+1687952204 c:\users\usuario\downloads\2023-06-28_parcialarmadopctopicos_entregable--\parcialarmadopctopicos_entregable\solucionparcialarmadopctopicos\tiposarmadopc.h
+
+1687640731 c:\users\usuario\downloads\2023-06-28_parcialarmadopctopicos_entregable--\parcialarmadopctopicos_entregable\solucionparcialarmadopctopicos\solucionparcialarmadopc.h
+	"../Vector/Vector.h"
+
+1687640731 c:\users\usuario\downloads\2023-06-28_parcialarmadopctopicos_entregable--\parcialarmadopctopicos_entregable\vector\vector.h
+	<stddef.h>
+	<stdbool.h>
+
+1688076457 source:c:\users\ndc\desktop\2023-06-28_parcialarmadopctopicos_entregable--\parcialarmadopctopicos_entregable\parcialarmadopctopicos\main.c
+	<locale.h>
+	<windows.h>
+	<stdio.h>
+	"../SolucionParcialArmadoPCTopicos/TiposArmadoPC.h"
+	"../SolucionParcialArmadoPCTopicos/SolucionParcialArmadoPC.h"
+
+1687952204 c:\users\ndc\desktop\2023-06-28_parcialarmadopctopicos_entregable--\parcialarmadopctopicos_entregable\solucionparcialarmadopctopicos\tiposarmadopc.h
+
+1687640731 c:\users\ndc\desktop\2023-06-28_parcialarmadopctopicos_entregable--\parcialarmadopctopicos_entregable\solucionparcialarmadopctopicos\solucionparcialarmadopc.h
+	"../Vector/Vector.h"
+
+1688069217 c:\users\ndc\desktop\2023-06-28_parcialarmadopctopicos_entregable--\parcialarmadopctopicos_entregable\vector\vector.h
+	<stddef.h>
+	<stdbool.h>
+
